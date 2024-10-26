@@ -25,9 +25,9 @@ app.use(
 app.use(cookieParser());
 
 const client = createClient({
-  password: "qeSpB6Nr4wzS67xBxAmo7DLJtA6g2RN0",
+  password: process.env.PASSWORD,
   socket: {
-    host: "redis-10893.c292.ap-southeast-1-1.ec2.redns.redis-cloud.com",
+    host: process.env.HOST,
     port: 10893,
   },
 });

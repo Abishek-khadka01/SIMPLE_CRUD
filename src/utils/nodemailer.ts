@@ -7,8 +7,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // true for port 465, false for other ports
   auth: {
-    user: "abishek1234khadka@gmail.com", // Use environment variable for user
-    pass: "yayg qhky tmpd gwjq", // Use environment variable for password
+    user: process.env.GOOGLE_USER, // Use environment variable for user
+    pass: process.env.GOOGLE_PASS, // Use environment variable for password
   },
 });
 
@@ -18,7 +18,7 @@ async function main(email: string, otp: number): Promise<void> {
 
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: "abishek1234khadka@gmail.com", // sender address
+    from: process.env.GOOGLE_USER, // sender address
     to: email, // list of receivers
     subject: "OTP", // Subject line
     text: "Hello world?", // plain text body
